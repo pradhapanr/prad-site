@@ -6,4 +6,4 @@ A personal website made with GitHub Pages and Jekyll.
 2. Run `bundle install` to install the dependencies. 
 3. Run `bundle exec jekyll serve` to start the local server.
 
-Shout out @davidtranhq for the template :D
+Shout out [@davidtranhq](https://github.com/davidtranhq) for the template :D
