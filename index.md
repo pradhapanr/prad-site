@@ -7,9 +7,9 @@ Hi there! My name is Pradhapan, but I usually go by **Prad**.
 I am a University of Guelph graduate with a Bachelor's degree in Honours Computer Science. During my time there, I
 interned at the following companies:
 
-  - [ApplyBoard](https://www.applyboard.com/): *Built a full-stack CSV processing platform*
-  - [Amazon Web Services](https://aws.amazon.com/): *Open-source GraphQL API building tool*
-  - [Snowflake](https://www.snowflake.com/en/): *Created a JSON diff library for terraform automation*
+  - [ApplyBoard](https://www.applyboard.com/): *Created a full-stack CSV processing platform*
+  - [Amazon Web Services](https://aws.amazon.com/): *Made an open-source GraphQL API building tool*
+  - [Snowflake](https://www.snowflake.com/en/): *Built a JSON diff library for terraform automation*
   - [Wealthsimple](https://wealthsimple.com): *In progress...*
 
 The tasks I work on are typically related to cloud engineering, infrastructure, and distributed systems. However, that doesn't
