@@ -1,0 +1,121 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3124}
+\newcommand\hwtitle{HW 9}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item \begin{proof}
+    Suppose $f$ is an entire one-to-one function. If $f$ is a polynomial, then by the Fundamental Theorem of Algebra, it has $n$ zeros (counting multiplicity), where $n$ is the degree of $f$. Since $f$ is one-to-one, it has at most $1$ zero of degree $1$. Thus, $n = 1$, so $f$ is a linear function. It remains to show that $f$ must be a polynomial.
+
+    Suppose $f(z)$ is not a polynomial. Then since $f$ is entire, its Taylor expansion at $z = 0$ converges everywhere and has infinitely many terms. So, the principal part of the Laurent series of $f(1/z)$ has infinitely many negative terms. Note that these expansions must be equivalent by the Uniqueness of Laurent expansions. Thus, $f(1/z)$ has an essential singularity at $z = 0$. By the Casorati-Weierstrass Theorem, $f(1/z)$ maps the deleted neighborhood $D$ of $z = 0$ to a dense subset $f(D) \subseteq \mathbb{C}$. Choose an open set disjoint from $D$, say $U$. By the density of $f(D)$ in $\mathbb C$, there is an element $x \in f(D)$ arbitrarily close to an element in $f(U)$. Since $f(U)$ is open by the open mapping theorem, $x \in f(U)$. So $f(D)$ and $f(U)$ are not disjoint despite $D$ and $U$ being disjoint, so $f$ is not injective; a contradiction. So $f$ is a polynomial.
+  \end{proof}
+
+  \item \begin{enumerate}
+    \item $z = 0$ and $z = \pm i$ are poles since $1$ and $z^4 + z^2$ are polynomials and thus entire, and $z^4 + z^2 = 0$ at these values. $z = 0$ is a pole of order 2 since it is a zero of order 2 of $z^4 + z^2 = z^2(z^2 + 1)$.
+    \item $z = k\pi$ for $k \in \mathbb Z$ are poles since $\cot z = \cos z / \sin z$ and $\sin z = 0$ at these values. And, $\sin z$ and $\cos z$ are entire.
+    \item $z = k\pi$ for $k \in \mathbb Z$ are poles since $\csc z = 1/\sin z$ and $\sin z = 0$ at these values. And, $\sin z$ and $1$ are entire.
+    \item $z = 1$ is a pole since $z - 1 = 0$ there and $z - 1$ and $\exp(1/z^2)$ are analytic at $z = 1$. $z = 0$ is an essential singularity since it is not a pole since $\exp(1/z^2)$ is analytic at $z = 0$. And, $z = 0$ is not a removable singularity since $\exp(1/z^2)$ is an essential singularity (its Laurent expansion has infitely many terms in its principal part).
+  \end{enumerate}
+
+  \item \begin{enumerate}
+    \item \begin{align*}
+      \frac{1}{z^4 + z^2} = \frac{1}{z^2(z^2 + 1)} = \frac{1}{z^2}\sum_{k = 0}^\infty (-1)^k z^{2k} = \sum_{k = 0}^\infty (-1)^k z^{2k - 2}
+    \end{align*}
+    \item \begin{align*}
+      \frac{\exp(1/z^2)}{z - 1} = - \frac{\exp(1/z^2)}{1 - z} = - \sum_{k = 0}^\infty z^k \cdot \sum_{k = 0}^\infty \frac{1}{k!z^{2k}}
+      = - \sum_{k = 0}^\infty \sum_{j = 0}^\infty \frac{z^{j - 2k}}{k!}
+    \end{align*}
+    \item Note that \begin{align*}
+      \frac{1}{z + 2}
+      &= \frac{1}{z - 2} \cdot \frac{1}{1 + \frac{4}{z - 2}} \\
+      &= \frac{1}{z - 2} \cdot \sum_{k = 0}^\infty \left(-\frac{4}{z - 2}\right)^k \\
+      &= \frac{1}{z - 2} + \sum_{k = 1}^\infty \frac{(-4)^k}{(z - 2)^{k + 1}} \\
+    \end{align*}
+    so
+    \begin{align*}
+      \frac{1}{z^2 + 4}
+      &= \frac{1}{4} \left( \frac{1}{z - 2} - \frac{1}{z + 2}\right) \\
+      &= -\frac{1}{4} \sum_{k = 1}^\infty \frac{(-4)^k}{(z - 2)^{k + 1}} \\
+      &= \frac{1}{4} \sum_{k = 2}^\infty \frac{(-4)^k}{(z - 2)^{k}} \\
+    \end{align*}
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

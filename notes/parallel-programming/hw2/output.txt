@@ -1,0 +1,192 @@
+Running correctness tests...
+[PASS] Test passed for degree 1
+[PASS] Test passed for degree 2
+[PASS] Test passed for degree 4
+[PASS] Test passed for degree 8
+[PASS] Test passed for degree 16
+[PASS] Test passed for degree 32
+[PASS] Test passed for degree 64
+[PASS] Test passed for degree 128
+[PASS] Test passed for degree 256
+[PASS] Test passed for degree 512
+[PASS] Test passed for degree 1024
+[PASS] Test passed for degree 2048
+[PASS] Test passed for degree 65536
+
+PASSED ALL TESTS
+[cpu] degree: 2, time: 0 ms
+[cpu] degree: 4, time: 0 ms
+[cpu] degree: 8, time: 0 ms
+[cpu] degree: 16, time: 0 ms
+[cpu] degree: 32, time: 0 ms
+[cpu] degree: 64, time: 0 ms
+[cpu] degree: 128, time: 0 ms
+[cpu] degree: 256, time: 0 ms
+[cpu] degree: 512, time: 1 ms
+[cpu] degree: 1024, time: 6 ms
+[cpu] degree: 2048, time: 25 ms
+[cpu] degree: 4096, time: 100 ms
+[cpu] degree: 8192, time: 398 ms
+[cpu] degree: 16384, time: 1610 ms
+[cpu] degree: 32768, time: 6401 ms
+[cpu] degree: 65536, time: 25615 ms
+[cuda (naive)] degree: 2, block size: 32, time: 0.556704 ms
+[cuda (fast!)] degree: 2, block size: 32, time: 0.279584 ms
+[cuda (naive)] degree: 4, block size: 32, time: 0.224768 ms
+[cuda (fast!)] degree: 4, block size: 32, time: 0.233792 ms
+[cuda (naive)] degree: 8, block size: 32, time: 0.22816 ms
+[cuda (fast!)] degree: 8, block size: 32, time: 0.21776 ms
+[cuda (naive)] degree: 16, block size: 32, time: 0.212256 ms
+[cuda (fast!)] degree: 16, block size: 32, time: 0.248704 ms
+[cuda (naive)] degree: 32, block size: 32, time: 0.24848 ms
+[cuda (fast!)] degree: 32, block size: 32, time: 0.236192 ms
+[cuda (naive)] degree: 64, block size: 32, time: 0.221376 ms
+[cuda (fast!)] degree: 64, block size: 32, time: 0.278016 ms
+[cuda (naive)] degree: 128, block size: 32, time: 0.255296 ms
+[cuda (fast!)] degree: 128, block size: 32, time: 0.27472 ms
+[cuda (naive)] degree: 256, block size: 32, time: 0.263904 ms
+[cuda (fast!)] degree: 256, block size: 32, time: 0.287584 ms
+[cuda (naive)] degree: 512, block size: 32, time: 0.287392 ms
+[cuda (fast!)] degree: 512, block size: 32, time: 0.300448 ms
+[cuda (naive)] degree: 1024, block size: 32, time: 0.334944 ms
+[cuda (fast!)] degree: 1024, block size: 32, time: 0.427008 ms
+[cuda (naive)] degree: 2048, block size: 32, time: 0.434464 ms
+[cuda (fast!)] degree: 2048, block size: 32, time: 0.575904 ms
+[cuda (naive)] degree: 4096, block size: 32, time: 0.734304 ms
+[cuda (fast!)] degree: 4096, block size: 32, time: 1.00653 ms
+[cuda (naive)] degree: 8192, block size: 32, time: 1.71952 ms
+[cuda (fast!)] degree: 8192, block size: 32, time: 2.06586 ms
+[cuda (naive)] degree: 16384, block size: 32, time: 5.23373 ms
+[cuda (fast!)] degree: 16384, block size: 32, time: 6.01632 ms
+[cuda (naive)] degree: 32768, block size: 32, time: 18.6682 ms
+[cuda (fast!)] degree: 32768, block size: 32, time: 20.8381 ms
+[cuda (naive)] degree: 65536, block size: 32, time: 71.4775 ms
+[cuda (fast!)] degree: 65536, block size: 32, time: 77.1 ms
+[cuda (naive)] degree: 2, block size: 64, time: 0.27024 ms
+[cuda (fast!)] degree: 2, block size: 64, time: 0.220032 ms
+[cuda (naive)] degree: 4, block size: 64, time: 0.230304 ms
+[cuda (fast!)] degree: 4, block size: 64, time: 0.213664 ms
+[cuda (naive)] degree: 8, block size: 64, time: 0.227296 ms
+[cuda (fast!)] degree: 8, block size: 64, time: 0.210912 ms
+[cuda (naive)] degree: 16, block size: 64, time: 0.223648 ms
+[cuda (fast!)] degree: 16, block size: 64, time: 0.213248 ms
+[cuda (naive)] degree: 32, block size: 64, time: 0.230496 ms
+[cuda (fast!)] degree: 32, block size: 64, time: 0.21632 ms
+[cuda (naive)] degree: 64, block size: 64, time: 0.231392 ms
+[cuda (fast!)] degree: 64, block size: 64, time: 0.221952 ms
+[cuda (naive)] degree: 128, block size: 64, time: 0.23584 ms
+[cuda (fast!)] degree: 128, block size: 64, time: 0.232736 ms
+[cuda (naive)] degree: 256, block size: 64, time: 0.241728 ms
+[cuda (fast!)] degree: 256, block size: 64, time: 0.251328 ms
+[cuda (naive)] degree: 512, block size: 64, time: 0.292288 ms
+[cuda (fast!)] degree: 512, block size: 64, time: 0.337824 ms
+[cuda (naive)] degree: 1024, block size: 64, time: 0.338112 ms
+[cuda (fast!)] degree: 1024, block size: 64, time: 0.394304 ms
+[cuda (naive)] degree: 2048, block size: 64, time: 0.427648 ms
+[cuda (fast!)] degree: 2048, block size: 64, time: 0.588704 ms
+[cuda (naive)] degree: 4096, block size: 64, time: 0.758496 ms
+[cuda (fast!)] degree: 4096, block size: 64, time: 0.968512 ms
+[cuda (naive)] degree: 8192, block size: 64, time: 1.56221 ms
+[cuda (fast!)] degree: 8192, block size: 64, time: 1.94019 ms
+[cuda (naive)] degree: 16384, block size: 64, time: 5.11802 ms
+[cuda (fast!)] degree: 16384, block size: 64, time: 5.60781 ms
+[cuda (naive)] degree: 32768, block size: 64, time: 18.2511 ms
+[cuda (fast!)] degree: 32768, block size: 64, time: 17.8346 ms
+[cuda (naive)] degree: 65536, block size: 64, time: 69.0762 ms
+[cuda (fast!)] degree: 65536, block size: 64, time: 67.6507 ms
+[cuda (naive)] degree: 2, block size: 128, time: 0.26976 ms
+[cuda (fast!)] degree: 2, block size: 128, time: 0.220288 ms
+[cuda (naive)] degree: 4, block size: 128, time: 0.228064 ms
+[cuda (fast!)] degree: 4, block size: 128, time: 0.213856 ms
+[cuda (naive)] degree: 8, block size: 128, time: 0.233728 ms
+[cuda (fast!)] degree: 8, block size: 128, time: 0.211904 ms
+[cuda (naive)] degree: 16, block size: 128, time: 0.20992 ms
+[cuda (fast!)] degree: 16, block size: 128, time: 0.214016 ms
+[cuda (naive)] degree: 32, block size: 128, time: 0.229024 ms
+[cuda (fast!)] degree: 32, block size: 128, time: 0.217536 ms
+[cuda (naive)] degree: 64, block size: 128, time: 0.214688 ms
+[cuda (fast!)] degree: 64, block size: 128, time: 0.222912 ms
+[cuda (naive)] degree: 128, block size: 128, time: 0.23408 ms
+[cuda (fast!)] degree: 128, block size: 128, time: 0.232704 ms
+[cuda (naive)] degree: 256, block size: 128, time: 0.238592 ms
+[cuda (fast!)] degree: 256, block size: 128, time: 0.253792 ms
+[cuda (naive)] degree: 512, block size: 128, time: 0.261696 ms
+[cuda (fast!)] degree: 512, block size: 128, time: 0.296 ms
+[cuda (naive)] degree: 1024, block size: 128, time: 0.329152 ms
+[cuda (fast!)] degree: 1024, block size: 128, time: 0.432768 ms
+[cuda (naive)] degree: 2048, block size: 128, time: 0.418464 ms
+[cuda (fast!)] degree: 2048, block size: 128, time: 0.602688 ms
+[cuda (naive)] degree: 4096, block size: 128, time: 0.734048 ms
+[cuda (fast!)] degree: 4096, block size: 128, time: 0.948928 ms
+[cuda (naive)] degree: 8192, block size: 128, time: 1.59309 ms
+[cuda (fast!)] degree: 8192, block size: 128, time: 1.94464 ms
+[cuda (naive)] degree: 16384, block size: 128, time: 5.1592 ms
+[cuda (fast!)] degree: 16384, block size: 128, time: 5.35741 ms
+[cuda (naive)] degree: 32768, block size: 128, time: 18.1316 ms
+[cuda (fast!)] degree: 32768, block size: 128, time: 17.5942 ms
+[cuda (naive)] degree: 65536, block size: 128, time: 66.364 ms
+[cuda (fast!)] degree: 65536, block size: 128, time: 60.9924 ms
+[cuda (naive)] degree: 2, block size: 256, time: 0.258368 ms
+[cuda (fast!)] degree: 2, block size: 256, time: 0.244032 ms
+[cuda (naive)] degree: 4, block size: 256, time: 0.216896 ms
+[cuda (fast!)] degree: 4, block size: 256, time: 0.25024 ms
+[cuda (naive)] degree: 8, block size: 256, time: 0.249472 ms
+[cuda (fast!)] degree: 8, block size: 256, time: 0.219808 ms
+[cuda (naive)] degree: 16, block size: 256, time: 0.227872 ms
+[cuda (fast!)] degree: 16, block size: 256, time: 0.29648 ms
+[cuda (naive)] degree: 32, block size: 256, time: 0.313408 ms
+[cuda (fast!)] degree: 32, block size: 256, time: 0.232864 ms
+[cuda (naive)] degree: 64, block size: 256, time: 0.253952 ms
+[cuda (fast!)] degree: 64, block size: 256, time: 0.281184 ms
+[cuda (naive)] degree: 128, block size: 256, time: 0.280864 ms
+[cuda (fast!)] degree: 128, block size: 256, time: 0.258848 ms
+[cuda (naive)] degree: 256, block size: 256, time: 0.254688 ms
+[cuda (fast!)] degree: 256, block size: 256, time: 0.287488 ms
+[cuda (naive)] degree: 512, block size: 256, time: 0.283392 ms
+[cuda (fast!)] degree: 512, block size: 256, time: 0.326176 ms
+[cuda (naive)] degree: 1024, block size: 256, time: 0.288448 ms
+[cuda (fast!)] degree: 1024, block size: 256, time: 0.407328 ms
+[cuda (naive)] degree: 2048, block size: 256, time: 0.461344 ms
+[cuda (fast!)] degree: 2048, block size: 256, time: 0.616608 ms
+[cuda (naive)] degree: 4096, block size: 256, time: 0.693952 ms
+[cuda (fast!)] degree: 4096, block size: 256, time: 0.895712 ms
+[cuda (naive)] degree: 8192, block size: 256, time: 1.44438 ms
+[cuda (fast!)] degree: 8192, block size: 256, time: 1.84234 ms
+[cuda (naive)] degree: 16384, block size: 256, time: 4.71773 ms
+[cuda (fast!)] degree: 16384, block size: 256, time: 4.89466 ms
+[cuda (naive)] degree: 32768, block size: 256, time: 16.6223 ms
+[cuda (fast!)] degree: 32768, block size: 256, time: 16.1432 ms
+[cuda (naive)] degree: 65536, block size: 256, time: 63.4388 ms
+[cuda (fast!)] degree: 65536, block size: 256, time: 61.1409 ms
+[cuda (naive)] degree: 2, block size: 512, time: 0.246816 ms
+[cuda (fast!)] degree: 2, block size: 512, time: 0.250464 ms
+[cuda (naive)] degree: 4, block size: 512, time: 0.262752 ms
+[cuda (fast!)] degree: 4, block size: 512, time: 0.266336 ms
+[cuda (naive)] degree: 8, block size: 512, time: 0.247872 ms
+[cuda (fast!)] degree: 8, block size: 512, time: 0.251456 ms
+[cuda (naive)] degree: 16, block size: 512, time: 0.275872 ms
+[cuda (fast!)] degree: 16, block size: 512, time: 0.211456 ms
+[cuda (naive)] degree: 32, block size: 512, time: 0.229856 ms
+[cuda (fast!)] degree: 32, block size: 512, time: 0.214144 ms
+[cuda (naive)] degree: 64, block size: 512, time: 0.227712 ms
+[cuda (fast!)] degree: 64, block size: 512, time: 0.218112 ms
+[cuda (naive)] degree: 128, block size: 512, time: 0.231136 ms
+[cuda (fast!)] degree: 128, block size: 512, time: 0.229088 ms
+[cuda (naive)] degree: 256, block size: 512, time: 0.247072 ms
+[cuda (fast!)] degree: 256, block size: 512, time: 0.249728 ms
+[cuda (naive)] degree: 512, block size: 512, time: 0.286112 ms
+[cuda (fast!)] degree: 512, block size: 512, time: 0.351936 ms
+[cuda (naive)] degree: 1024, block size: 512, time: 0.344064 ms
+[cuda (fast!)] degree: 1024, block size: 512, time: 0.395136 ms
+[cuda (naive)] degree: 2048, block size: 512, time: 0.425536 ms
+[cuda (fast!)] degree: 2048, block size: 512, time: 0.537824 ms
+[cuda (naive)] degree: 4096, block size: 512, time: 0.674464 ms
+[cuda (fast!)] degree: 4096, block size: 512, time: 0.871872 ms
+[cuda (naive)] degree: 8192, block size: 512, time: 1.55408 ms
+[cuda (fast!)] degree: 8192, block size: 512, time: 1.80963 ms
+[cuda (naive)] degree: 16384, block size: 512, time: 4.88931 ms
+[cuda (fast!)] degree: 16384, block size: 512, time: 4.71738 ms
+[cuda (naive)] degree: 32768, block size: 512, time: 16.9212 ms
+[cuda (fast!)] degree: 32768, block size: 512, time: 15.9878 ms
+[cuda (naive)] degree: 65536, block size: 512, time: 59.3212 ms
+[cuda (fast!)] degree: 65536, block size: 512, time: 55.0563 ms

@@ -1,0 +1,140 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3124}
+\newcommand\hwtitle{HW 8}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item \begin{proof}
+    Let $z \in \tilde S$. Consider $\gamma(t) = tz + (1 - t)\alpha$ for $t \geq 1$. Then $\gamma$ connects $z$ to infinity and is contained in $\tilde S$, since if it weren't, there would be a point $z' = \gamma(t')$ in $S$ where $t' \geq 1$. But then $z'$ is connected to $\alpha$ by the line segment $\gamma(t)$, $0 \leq t \leq t'$, which is not completely contained in $S$ since $z = t(1) \in \tilde S$, contradicting the fact that $S$ is star-like.
+  \end{proof}
+
+  \item \begin{proof}
+    Let $\gamma: \gamma(t), a \leq t \leq b$ be a closed polygonal path. If it is simple we are done, so suppose otherwise. Then $\gamma(t_1) = \gamma(t_2)$ for some $t_1 \neq t_2$ (possibly many) that are not the endpoints. Either this is a single intersection point, that is, the intersecting line segments are secant or touch corners, or it is a neighborhood of intersection points, that is, the intersection is two colinear line segments. We show that we can decompose $\gamma$ into closed polygonal paths and line segments traversed twice in opposite directions without the given intersection(s), from which the claim follows by induction by applying the same argument to each of the new closed polygonal paths until no intersections remain.
+    
+    If this is a single intersection point, that is, $\gamma(t_1) = \gamma(t_2)$ for $t_1 \neq t_2$ but $\gamma(t_1') \neq \gamma(t_2')$ for all $t_1' \in (t_1 - \epsilon, t_1 + \epsilon) \setminus t_1$ and $t_2' \in (t_2 - \delta, t_2 + \delta) \setminus t_2$ for all $\epsilon, \delta > 0$, then $\gamma = \gamma_1 \cup \gamma_2$ where $\gamma_1 = \gamma(t), t \in [a, t_1] \cup [t_2, b]$ and $\gamma_2 = \gamma(t), t \in [t_1, t_2]$.
+
+    If instead it is a neighborhood of intersection points, then $\gamma(t_1) = \gamma(t_2)$ for some neighborhoods $T_1$ and $T_2$ around and including $t_1$ and $t_2$. Define $x := \inf T_1$, $y := \sup T_1$, $c := \inf T_2, d := \sup T_2$. We consider two cases: where the line segments travel in the same direction and opposite directions.
+    
+    If the line segments travel in the same direction, then $x = c$ and $y = d$, so we can decompose $\gamma$ as $\gamma_1 \cup \gamma_2$, where $\gamma_1 = \gamma(t), t \in [x, y] \cup [d, c]$ and $\gamma_2 = \gamma(t), t \in [a, x] \cup [c, y] \cup [d, b]$. Note that $\gamma_1$ is a line segment traversed twice in opposite directions, and $\gamma_2$ is a closed polygonal path.
+    
+    If the line segments travel in opposite directions, then $x = d$ and $y = c$. Decompose $\gamma = \gamma_1 \cup \gamma_2 \cup \gamma_3$ where $\gamma_1 = \gamma(t), t \in [a, d] \cup [d, b]$, $\gamma_2 = \gamma(t), t \in [y, c]$ and $\gamma_3 = \gamma(t), t \in [x, y] \cup [c, d]$. Note that $\gamma_1$ and $\gamma_2$ are closed polygonal paths, and $\gamma_3$ is a line segment traversed in two directions.
+  \end{proof}
+
+  \item \begin{proof}
+    We have $\int_{-1}^z d\zeta/\zeta = \int_{-1}^{-\vert z \vert} d\zeta/\zeta + \int_{-\vert z \vert}^z d\zeta/\zeta$. The first term is 
+    $$
+    \int_{-1}^{-\vert z \vert} d\zeta/\zeta = \ln \vert \zeta \vert \vert_{-1}^{-\vert z \vert} = \ln \vert -\vert z \vert \vert - \ln \vert -1 \vert = \ln \vert z \vert - \ln 1 = \ln \vert z \vert
+    $$
+    
+    Integrating from $\vert z \vert$ to $z$ along $C: \zeta(\theta) = \vert z \vert e^{i(\theta - \pi)}, 0 \leq \theta \leq \operatorname{Arg} z + \pi$,
+    
+    $$
+    \int_C d\zeta/\zeta = \int_0^{\operatorname{Arg} z + \pi} \frac{\zeta'(\theta)}{\zeta(\theta)} d\theta = \int_0^{\operatorname{Arg} z + \pi} \frac{i\vert z \vert e^{i(\theta - \pi)}}{\vert z \vert e^{i(\theta - \pi)}} d\theta = \int_0^{\operatorname{Arg} z + \pi} i d\theta = i(\operatorname{Arg} z + \pi)
+    $$
+    
+    So $f(z) = \pi i + \int_{-1}^z d\zeta / \zeta = \ln \vert z \vert + i\operatorname{Arg}(z) + i2\pi$, so $f(z)$ is an analytic branch of $\ln z$.
+  \end{proof}
+
+  \item \begin{proof}
+    Note that $f(x) = x^x = e^{x \ln x}$. From class, we showed $\ln z = \ln \vert z \vert + i\operatorname{Arg} z$ for $z$ with positive real part. So
+    
+    $$
+    f(z) = \exp({z \ln z}) = \exp(z \ln \vert z \vert + iz \operatorname{Arg} z) = \exp(z \ln \vert z \vert) \exp(iz \operatorname{Arg} z)
+    $$
+
+    Since $\ln z$ is analytic on this domain, $f(z)$ is analytic on this domain. Note that when $z \in \mathbb R$, the second factor is $1$, so $f(x) = x^x$ is real-valued on $\mathbb R$. We have
+
+    $$
+    f(i) = \exp(i \ln 1 + i^2 \pi/2) = \exp(-\pi/2) = \frac{1}{e^{\pi/2}}
+    $$
+
+    and
+
+    $$
+    f(-i) = \exp(-i \ln 1 + i^2 \pi/2) = \exp(-\pi/2) = \frac{1}{e^{\pi/2}}
+    $$
+  \end{proof}
+
+  \item \begin{proof}
+    Since $f(z) \to \infty$ as $z \to z_0$, $f$ is unbounded in the deleted neighborhood of $z_0$. So $z_0$ is not a removable singularity. Also, since $f(z) \to \infty$ as $z \to z_0$, we can choose some deleted $\delta$-neighborhood $X$ of $z_0$ such that $\vert f(z) \vert > 1$ for all $z \in X$. So, $D(0; \frac{1}{2}) \subseteq X \setminus \mathbb C$ is disjoint from $X$. So $X$ is not dense in $\mathbb C$. So by the Caserati-Weierstrass theorem, $z_0$ is not an essential singularity. $z_0$ is neither an essential singularity nor a removable singularity, so it must be a pole.
+  \end{proof}
+
+\end{enumerate}
+\end{document}

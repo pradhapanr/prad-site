@@ -1,0 +1,191 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3122}
+\newcommand\hwtitle{HW 2}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item \begin{enumerate}
+    \item $P_y = - 6xy + i(3x^2 - 3y^2 - 1)$ and $P_x = 3x^2 - 3y^2 - 1 + i(6xy)$, so $iP_x = i(3x^2 - ey^2 - 1) - 6xy = P_y$, so $P$ is analytic.
+    \item $P_x = 2x$ and $P_y$ = $2yi$. So $iP_x = 2xi \neq 2yi$. so $P$ is not analytic.
+    \item $P_x = 2y - i2x$ and $P_y = 2x - i2y$. So $iP_x = 2x - i2y = P_y$. So $P$ is analytic.
+  \end{enumerate}
+
+  \item \begin{proof}
+    Suppose $P$ is analytic. Then $P_y = iP_x$. But, this is only true when $P_y = P_x = 0$, that is, $P$ is constant.
+  \end{proof}
+  
+  \item \begin{enumerate}
+    \item $P(z) = z^3 - z$, so $P'(z) = 3z^2 - 1 = 3x^2 - 3y^2 - 1 + i(6xy) = P_x$.
+    \item Not analytic.
+    \item $P(z) = -iz^2$, so $P'(z) = -2zi = -2xi + 2y = P_x$.
+  \end{enumerate}
+
+  \item Suppose $f, g$ are differentiable.
+  \begin{enumerate}
+    \item \begin{proof}
+      \begin{align*}
+        (f + g)'(z) 
+        &= \lim_{h \to 0} \frac{h_1(z + h) - h_1(z)}{h} \\
+        &= \lim_{h \to 0} \frac{f(z + h) + g(z + h) - f(z) - g(z)}{h} \\
+        &= \lim_{h \to 0} \left( \frac{f(z + h) - f(z)}{h} + \frac{g(z + h) - g(z)}{h} \right) \\
+        &= \lim_{h \to 0} \frac{f(z + h) - f(z)}{h} + \lim_{h \to 0} \frac{g(z + h) - g(z)}{h} \\
+        &= f'(z) + g'(z)
+      \end{align*}
+    \end{proof}
+
+    \item \begin{proof}
+      \begin{align*}
+        (fg)'(z) 
+        &= \lim_{h \rightarrow 0}\frac{f(z+h)g(z+h) - f(z)g(z)}{h} \\
+        &= \lim_{h \rightarrow 0}\frac{f(z+h)g(z+h) - f(z+h)g(z) + f(z+h)g(z) - f(z)g(z)}{h} \\ 
+        &= \lim_{h \rightarrow 0}\left(\frac{f(z+h)(g(z+h)-g(z))}{h} + \frac{g(z)(f(z+h)-f(z))}{h}\right) \\ 
+        &= \lim_{h \rightarrow 0}f(z+h)\frac{g(z+h)-g(z)}{h} + \lim_{h \rightarrow 0}g(z)\frac{f(z+h)-f(z)}{h}  \\ 
+        &= f(z)g'(z) + g(z)f'(z)
+      \end{align*}
+    \end{proof}
+
+    \item \begin{proof}
+      From the hint, we have $(1/g)' = -\frac{g'(z)}{(g(z))^2}$. So, by the product rule,
+      \begin{align*}
+        \left(\frac{f}{g}\right)'(z) = \left(f \cdot \frac{1}{g}\right)'(z)
+        &= - \frac{f(z)g'(z)}{(g(z))^2} + \frac{f'(z)}{g(z)} \\
+        &= \frac{f'(z)g(z) - f(z)g'(z)}{(g(z))^2}
+      \end{align*}
+    \end{proof}
+  \end{enumerate}
+
+  \item \begin{proof}
+    Let $P_n(z) = \alpha_n z^n$. Then
+    \begin{align*}
+      P'(z) &= \alpha \lim_{h \to 0} \frac{(z + h)^n - z^n}{z} \\
+      &= \alpha \lim_{h \to 0} nz^{n - 1} + \frac{n(n - 1)}{2!}z^{n - 2}h + \dots + h^{n - 1} \\
+      &= \alpha n z^{n - 1}
+    \end{align*}
+
+    since the terms past $nz^{n - 1}$ vanish due to the vanishing $h$ factor. So for any $P(z)$, we have $P(z) = P_0(z) + P_1(z) + \dots + P_n(z)$, so by the sum rule above, the statement follows.
+  \end{proof}
+
+  \item We have $\limsup_{n \to \infty} \vert c_n \vert^{1/n} = 1/R$.
+    \begin{enumerate}
+      \item Since \begin{align*}
+        \limsup_{n \to \infty} \vert n^p c_n \vert^{1/n}
+        &= \lim_{n \to \infty} \vert n^p \vert^{1/n} \cdot \limsup_{n \to \infty} \vert c_n \vert^{1/n} \\
+        &= 1 \cdot \limsup_{n \to \infty} \vert c_n \vert^{1/n} \\
+        &= 1/R,
+      \end{align*} the radius of convergence is $R$.
+      \item Since $\limsup_{n \to \infty} \vert \vert c_n \vert \vert^{1/n} = \limsup_{n \to \infty} \vert c_n \vert^{1/n} = 1/R$, the radius of convergence is $R$.
+      \item Note that 
+      $$
+        \limsup_{n \to \infty} a_n^2 = \left(\limsup_{n \to \infty} a_n\right)^2
+      $$
+      if $a_n, b_n > 0$. So,
+      $$
+      \limsup_{n \to \infty} \vert c_n^2 \vert^{1/n} = \limsup_{n \to \infty} \left(\vert c_n \vert^{1/n}\right)^2 = \left(\limsup_{n \to \infty} \vert c_n \vert^{1/n}\right)^2 = 1/R^2.
+      $$. So the radius of convergence is $R^2$. 
+    \end{enumerate}
+  
+
+  \item \begin{enumerate}
+    \item \begin{proof}
+      Let $\epsilon > 0$. Choose $N \in \mathbb N$ such that for all $n > N$, $\left\vert \left\vert \frac{a_{n + 1}}{a_n} \right\vert - L \right\vert < \epsilon$. Then
+      \begin{align*}
+        &\vert a_n \vert = \frac{\vert a_n \vert}{\vert a_{n - 1} \vert}\dots\frac{\vert a_{N + 1}\vert }{\vert a_N\vert} \vert a_N \vert < (L + \epsilon)^{n - N} \vert a_N \vert \\
+        &\implies \vert a_n \vert^{1/n} < (L + \epsilon)^{1 - N/n} \vert a_N \vert^{1/n} \\
+        &\implies \lim_{n \to \infty} \vert a_n \vert^{1/n} \leq L + \epsilon
+      \end{align*}
+      and since $\epsilon > 0$ is arbitrary, $\lim_{n \to \infty} \vert a_n \vert^{1/n} = L$.
+    \end{proof}
+
+    \item \begin{proof}
+      Let $N \in \mathbb N$. For all $n > N$ where $n$ is even, $\left\vert \frac{a_{n + 1}}{a_n} \right\vert = \left\vert \frac{2^{-(n + 1)}}{2^{-n + 2}} \right\vert = \frac{1}{8}$. Similarily, when $n$ is odd, $\left\vert \frac{a_{n + 1}}{a_n} \right\vert = 8$. Clearly, the sequence does not converge since it oscillates infinitely between $8$ and $1/8$, so the limit does not exist.
+
+      We have that $a_n^{1/n} = 1/2$ when $n$ is odd and $a_n^{1/n} = (2^{-n} \cdot 2^2)^{1/n} = 
+      \frac{4^{1/n}}{2}$ when $n$ is even, which is monotonically decreasing since $4^{1/n} \geq 4^{\frac{1}{n + 1}}$ for all $n$. So, $\sup \lbrace a_n^{1/n} : n \geq N \rbrace = \max \lbrace 1/2, \frac{4^{1/N}}{2} \rbrace$, so $\limsup a_n^{1/n} = \lim_{N \to \infty} \max \lbrace 1/2, \frac{4^{1/N}}{2} \rbrace = 1/2$.
+
+    \end{proof}
+  \end{enumerate}
+
+  \item \begin{proof}
+    Suppose that $f(z) = \sum C_n z^n = 1$ for $z = \frac{1}{2}, \frac{1}{3}, \dots$. Then, since $f$ is continuous, $f(0) = \lim_{z \to 0} f(z) = \lim_{k \to \infty} f(1/k) = 1$. Now define $g = f - 1$. Then $g$ is also continuous, and $g(0) = \lim_{z \to 0} g(z) = \lim_{k \to \infty} f(1/k) - 1 = 0$. So $g$ is zero at all points of a non-zero sequence convergent to zero, so by the Uniqueness Theorem for Power Series, $g \equiv 0$. So $f \equiv 1$ and $f'(0) = 0 \not> 0$.
+  \end{proof}
+  
+\end{enumerate}
+
+\end{document}

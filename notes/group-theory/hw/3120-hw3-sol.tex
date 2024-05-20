@@ -1,0 +1,162 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3120}
+\newcommand\hwtitle{HW 3}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item \begin{proof}
+    (i $\implies$ ii) Let $G$ be a simple group with $\vert G \vert$ odd. Suppose $\vert G \vert$ weren't prime. Then there exists a prime decomopsition $\vert G \vert = p^nm$ where $n > 0$ and $p \not\mid m$ with $p$ prime. So, by Sylow's, there exists a proper subgroup $H \leq G$. Since $\vert G \vert$ is odd, $G$ is solvable by (i), so $G/1 = G$ is Abelian. But then, every subgroup of $G$ must be normal including $H$: contradicting that $\vert G \vert$ is prime.
+
+    (ii $\implies$ i) Let $G$ be a group with odd order. If $\vert G \vert$ is prime, then it is also cyclic, thus Abelian, and thus solvable since $1 \trianglelefteq G$ is a composition series with $G/1 = G$ Abelian. If $\vert G \vert$ isn't prime, then by (ii) it is not simple. If $G$ is trivial then we are done, so suppose otherwise. By Jordan-Holder, $G$ has a composition series with simple composition factors. Since $\vert G \vert$ is odd, the order of each subgroup in the series is odd, so the order of each composition factor is odd. By (ii), each composition factor is prime, and thus Abelian. In either case, $G$ is solvable.
+  \end{proof}
+
+  \item \begin{enumerate}
+    \item (Note we seperate elements by commas in this cycle notation.) \begin{align*}
+      \sigma &= (1,13,5,10)(2)(3,15,8)(4,14,11,7,12,9)(6) \\
+      \tau &= (1,14)(2,9,15,13,4)(3,10)(5,12,7)(6)(8,11) \\
+      \sigma^2 &= (1,5) (13, 10)(2)(3,8,15)(4,11,12)(14,7,9)(6) \\
+      \sigma\tau &= (1,11,3)(2,4)(5,9,8,7,10,15)(6)(12)(13,14) \\
+      \tau\sigma &= (1,4)(2,9)(3,13,12,15,11,5)(6)(7)(8,10,14) \\
+      \tau^2 \sigma &= (1, 2, 15, 8, 3, 4, 14, 11, 12, 13, 7, 5, 10)(6)(9)
+    \end{align*}
+    \item Using the fact that the order of a permutation is the least-common multiple of the cycle-lengths of its disjoint cycle decompisition, $\vert \tau \vert = 12$, $\vert \tau \vert = 30, \vert \sigma^2 \vert = \vert \tau\sigma \vert = \vert \sigma\tau \vert = 6, \vert \tau^2 \sigma = 13$.
+    \item Using the fact that odd length cycles have an even number of transpositions and vice-versa and that the sign of permutations obey $\mathbb Z/2\mathbb Z$ parity laws, $\sigma$ is even, $\tau$ is odd, $\sigma^2$ is even, $\sigma \tau$ is odd, $\tau \sigma$ is odd, and $\tau^2 \sigma$ is even.
+  \end{enumerate}
+
+  \item Let $a = (1 \enspace 2)(3 \enspace 4)$ and $b = (1 \enspace 3)(2 \enspace 4)$.
+  \begin{enumerate}
+    \item \begin{proof}
+      . First, note that $V_4 \cong \langle a, b \rangle \leq A_4$ since $a^2 = b^2 = (ab)^2 = 1$. To show that $\langle a, b \rangle$ is normal, it suffices to show that any conjugate of $a$ or $b$ in $A_4$ is in $\langle a, b \rangle$, since the product of conjugates and the inverse of a conjugate is the conjugate of products and the conjugate of the inverse, respectively. Recall that in Homework 1, we showed that conjugation preserves order. So, the conjugate of $a$ or $b$ by any element in $A_4$ must have order 2. But, the only elements in $A_4$ with order 2 are $a, b, ab \in \langle a, b \rangle$. So $\langle a, b \rangle$ is normal.
+    \end{proof}
+
+    \item Let $N_1 = \langle a \rangle$ and $N_2 = \langle a, b \rangle$. Then $1 \trianglelefteq N_1 \trianglelefteq N_2 \trianglelefteq A_4$, and since $N_1/1 \cong \mathbb Z/2\mathbb Z \cong N_2/N_1$ and $A_4/N_2 \cong \mathbb Z/3\mathbb Z$, each of the composition factors are Abelian, so $A_4$ is solvable. 
+
+  \end{enumerate}
+  
+  \item \begin{proof}
+    The elements of order 4 $\pm i, \pm j, \pm k \in Q_8$ have the same square, but the elements of order 4 in $S_4$ (the 4-cycles) do not. So $S_4$ can't have a subgroup isomorphic to $Q_8$.
+  \end{proof}
+
+  \item \begin{proof}
+    Define a mapping $\phi: S_{n - 2} \to A_n$ as
+    $$
+    \phi(\sigma) = \begin{cases}
+      \sigma, & \sigma \text{ is even} \\
+      (n - 1 \enspace n) \sigma, & \sigma \text { is odd} 
+    \end{cases}
+    $$
+    We show first that $\phi$ is a homomorphism. Let $\sigma, \tau \in S_{n - 2}$. If both are even, thene $\phi(\sigma)\phi(\tau) = \sigma\tau = \phi(\sigma\tau)$. If both are odd, then $\phi(\sigma)\tau(\sigma) = (n - 1 \enspace n)\sigma(n - 1 \enspace n)\tau = \sigma \tau = \phi(\sigma\tau)$. Finally, without loss of generality suppose $\sigma$ is even and $\tau$ is odd. Then $\phi(\sigma)\phi(\tau) = \sigma(n - 1 \enspace n)\tau = (n - 1 \enspace n) \sigma\tau = \phi(\sigma\tau)$ since the product of and odd and even permutation is odd.
+
+    $\phi$ is clearly injective and $\sigma(S_{n - 2}) \leq A_n$ since every permutation in $\sigma(S_{n - 2})$ is even by construction. So $\phi: S_{n - 2} \to \phi(S_{n - 2}) \leq A$ defines an isomorphism. 
+  \end{proof}
+
+  \item \begin{enumerate}
+    \item \begin{proof} Let $a \in A$ and $g \in G_a$. Then $\sigma g \sigma^{-1} (\sigma(a)) = \sigma g (a) = \sigma(a)$, so $\sigma g \sigma^{-1} \in G_{\sigma(a)}$, so $\sigma G_a \sigma^{-1} \subseteq G_{\sigma(a)}$. Conversely, let $g \in G_{\sigma(a)}$. Then $g = (\sigma\sigma^{-1})g(\sigma\sigma^{-1}) = \sigma(\sigma^{-1}g\sigma)\sigma^{-1}$. Since $\sigma^{-1}g\sigma(a) = \sigma^{-1}\sigma(a) = a$, $\sigma^{-1}\sigma_a\sigma \in G_a$, so $\sigma(\sigma^{-1}g\sigma)\sigma^{-1} \in \sigma G_a\sigma^{-1}$. So $G_\sigma(a) \subseteq \sigma G_a\sigma^{-1}$. Thus, $\sigma G_a \sigma^{-1} = G_{\sigma(a)}$. \end{proof}
+    
+    So,
+    $
+    \bigcap_{\sigma \in G} \sigma G_a \sigma^{-1} 
+    = \bigcap_{\sigma \in G} G_{\sigma(a)}$ fixes every element $\sigma(a) \in A$, which, if $G$ acts transitively on $A$, is every element of $A$. So the intersection of all of them must fix every element, that is, $1$.
+    \item \begin{proof}
+      Let $a \in A$ and $\sigma \in G - \lbrace 1 \rbrace$. Since $G$ acts transitively on $A$ and $G$ is Abelian and thus normal, $G_{\sigma(a)} = \sigma G_a \sigma^{-1} = G_a$. By transitivity of $G$ on $A$, $G_a = G_b$ for all $b \in A$, so $G_a = \lbrace 1 \rbrace$. Thus, $\sigma(a) \neq a$.
+
+      Thus, $\vert A \vert = \vert G : G_a \vert = \vert G : \lbrace 1 \rbrace \vert = \vert G \vert$.
+    \end{proof}
+  \end{enumerate}
+
+  \item \begin{enumerate}
+    \item \begin{proof}
+      Let $a \in A$, $g \in G_a$ and $x \in A - \lbrace a \rbrace$. Note that $G_a \leq G$ so it suffices to show that $gx \neq a$. If it were that $gx = a$, then since $g \in G_a$, $x$ must be $a$; contradicting that $x \in A - \lbrace a \rbrace$.
+    \end{proof}
+
+    \item \begin{proof}
+      Let $n \geq 2, 1 \leq i \leq n$. Since $S_n$ is transitive in its usual action on $\lbrace 1, 2, \dots, n \rbrace$ and the stabilizer $S_i = \lbrace \sigma \in S_n : \sigma(i) = i \rbrace \leq S_n$ is isomorphic to $S_{n - 1}$, we have that $S_i \cong S_{n - 1}$ acts transitively on $\lbrace 1, 2, \dots, n \rbrace - \lbrace i \rbrace$. So $S_n$ is doubly transitive on $\lbrace 1, 2, \dots, n \rbrace$.
+    \end{proof}
+
+    \item \begin{proof}
+      Let $a, b$ be any vertex with (labels) $a \leq b$. The usual action of $D_8$ on $V$ is transitive since $a = r^{b - a}b$, where $r$ is a clockwise rotation. But, it is not doubly transitive, since, for example, if $a = 1$ and $b = 2$, there is no action $h$ in a subgroup $H = \lbrace \sigma \in D_8 : \sigma(a) = a \rbrace$ where $a = hb$: the only actions in $H$ is the identity and the reflection along the diagonal intersecting $a$.
+    \end{proof}
+  \end{enumerate}
+
+  \item \begin{proof}
+    We label the elements of $Q_8$ $1, -1, i, j, k, -i, -j, -k$ as $1,2,3,4,5,6,7,8$ respectively and left-multiply each by the generators of $Q_8 = \langle i, j \rangle$. Left-multiplying first by $i$ yields  $\sigma_i = (1 \enspace 3 \enspace 2 \enspace 6)(4 \enspace 5 \enspace 7 \enspace 8)$. Similarily, left-multiplying each element by $j$ yields $\sigma_j = (1 \enspace 4 \enspace 2 \enspace 7)(3 \enspace 8 \enspace 6 \enspace 5)$. So, $Q_8 \cong \langle \sigma_i, \sigma_j \rangle \leq S_8$.
+  \end{proof}
+\end{enumerate}
+\end{document}

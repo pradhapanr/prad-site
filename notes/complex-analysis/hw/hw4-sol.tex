@@ -1,0 +1,146 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3124}
+\newcommand\hwtitle{HW 4}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item We have $\dot w(t) = \cos t - i \sin t$, so \begin{align*}
+    \int_0^{2\pi} \frac{1}{w(t)} \dot w(t) dt 
+    &= \int_0^{2\pi} \frac{\cos t - i \sin t}{\sin t + i \cos t} dt \\
+    &= \int_0^{2\pi} \frac{(\cos t - i \sin t)(\sin t - i \cos t)}{\sin^2 t + \cos^2 t} dt \\
+    &=\int_0^{2\pi} \frac{-i (\sin^2 t + \cos^2 t)}{\sin^2 t + \cos^2 t} dt \\
+    &= \int_0^{2\pi} -i dt \\
+    &= -2\pi i
+  \end{align*}
+
+  This is the negation of the integral parameterized by the previous curve, since $w(t)$ traces out the unit circle in the opposite direction of $z(t)$.
+
+  \item \begin{proof}
+    Since $\int_C f(z) dz = re^{i\theta}$ for some $r, \theta \in \mathbb R$, $r = \int_C e^{-i\theta} f(z) dz$. Also, $\vert re^{i \theta} \vert = r = \vert \int_C f(z) dz \vert$, so, using a reparameterization of $z = e^{it}$ for $0 \leq t \leq 2\pi$,
+    
+    \begin{align*}
+      \left\vert \int_C f(z) dz \right\vert 
+      &= \int_C e^{-i\theta} f(z) dz \\
+      &= \int_0^{2\pi} e^{-i \theta} f(e^{it}) ie^{it} dt \\
+      &= \int_0^{2\pi} ie^{i(t - \theta)} f(e^{it}) dt \\
+      &= \int_0^{2\pi} (i\cos (t - \theta) + \sin(\theta - t)) f(e^{it}) dt \\
+      &\leq \operatorname{Re}\left( \int_0^{2\pi} (i\cos (t - \theta) + \sin(\theta - t)) f(e^{it}) dt \right) \\
+      &= \int_0^{2\pi} \sin(\theta - t) f(e^{it}) dt \\
+      &\leq \left\vert \int_0^{2\pi} \sin (\theta - t) f(e^{it}) dt \right\vert \\
+      &\leq \int_0^{2\pi} \vert \sin(\theta - t) f(e^{it}) \vert dt \\
+      &\leq \int_0^{2\pi} \vert \sin(\theta - t) \vert dt\\
+      &= 4 
+    \end{align*}
+    where we use the fact that $\vert f(e^{it}) \vert \leq 1$ in the last inequality.
+  \end{proof}
+
+  \newpage
+
+  \item \begin{enumerate}
+    \item \begin{proof}
+      Let $f(z) = \frac{z^{k + 1}}{k + 1}$. Then $f$ is a function analytic throughout $C$, and $z^k = f'(z)$. So by the Closed Curve Theorem and its corollary, $\int_C z^k dz = 0$.
+    \end{proof}
+
+    \item \begin{proof}
+      Let $z(\theta) = Re^{i\theta}$. Then $\dot z(\theta) = iRe^{i\theta}$, so
+      \begin{align*}
+        \int_C z^k dz
+        &= \int_0^{2\pi} i(Re^{i \theta})^{k + 1} d\theta \\
+        &= \left. \frac{(Re^{i\theta})^{k + 1}}{k + 1} \right\vert_{\theta = 0}^{2\pi} \\
+        &= \frac{R^{k + 1}}{k + 1} - \frac{R^{k + 1}}{k + 1} \\
+        &= 0
+      \end{align*}
+    \end{proof}
+  \end{enumerate}
+
+  \item \begin{proof}
+    Let $a, b \in D$. Define $C: z(t) = (1 - t)a + bt, 0 \leq t \leq 1$. Note then that the start and endpoints of $C$ are $a, b$, respectively. Then by Proposition 4.12, since $f$ is analytic in a convex region, \begin{align*}
+      \vert f(b) - f(a) \vert
+      &= \left\vert \int_C f'(z) dz \right\vert \\
+      &= \left\vert \int_0^1 f'(z(t)) \dot z(t) dt \right\vert \\
+      &= \int_0^1 \left\vert f'((1 - t)a + bt) (b - a) \right\vert dt \\
+      &\leq \int_0^1 \vert b - a \vert dt \\
+      &= \vert b - a \vert
+    \end{align*}
+    where we use the fact that $\vert f' \vert \leq 1$ in the inequality.
+  \end{proof}
+\end{enumerate}
+
+\end{document}

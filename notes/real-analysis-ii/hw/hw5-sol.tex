@@ -1,0 +1,105 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3122}
+\newcommand\hwtitle{HW 5}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item \begin{proof}
+    Let $U$ be an open cover of $X$. Since $U$ is open, for every $x \in U$, there is an open ball $B_x$ of radius $\epsilon(x)$ around $x$ contained in $U$. Consider the union of all such balls $V = \bigcup_{x \in U} B_x$. Since every ball is contained in $U$, $V \subseteq U$. Also, since every $x \in U$ is contained in some ball $B_x$, $U \subseteq V$. Thus, $U = V$, so $V$ is a cover of $X$ by open balls, so it has a finite subcover. So $U$ has a finite subcover, so $X$ is compact.
+  \end{proof}
+
+  \item \begin{proof}
+    Suppose $X$ is not compact. Let $(x_n)$, $n \in \mathbb N$ be an arbitrary sequence with no accumulation point in $X$. Define $f(x) = \inf_n \lbrace d(x, x_n) + 1/n \rbrace$. First we show that $f$ is continuous. Let $x, y \in X$ with $d(x, y) > 0$. We have that for $n \in \mathbb N$,
+    $$f(x) \leq d(x, x_n) + 1/n \leq d(x, y) + d(y, x_n) + 2/n$$
+    so $f(x) \leq d(x, y) + f(y) + 1/n$. Similarily, $f(y) \leq d(x, y) + f(x) + 1/n$. So,
+    $$
+    \vert f(x) - f(y) \vert \leq d(x, y) + 1/n
+    $$
+    Since $1/n$ and $d(x, y)$ can be made arbitrarily small, $f$ is continuous.
+
+    Next we show that $f(X)$ is non-compact. Note that $0 \not\in f(X)$ since if $x \not\in (x_n)$, then $f(x) > 0$ since $x$ is not an accumulation point, so $\lim_{n \to \infty} d(x, x_n) \neq 0$. If instead $x \in (x_n)$, then
+    $$f(x) = \inf \lbrace 1/n : x_n = x \rbrace = \min \lbrace 1/n : x_n \rbrace > 0$$ 
+    since there are finitely many $x_n = x$. We know there are only finitely many such $x_n$ since if there weren't, $(x_n)$ would have an accumulation point $x$. Finally, note that $1/n \in f(X)$ for arbitrarily large $n$ since $f(y) = 1/n$, where $n = \max\lbrace n : y = x_n\rbrace$, which exists because there are only finitely many such $x_n = y$ by $y$ not being an accumulation point. So, we can form a sequence $(f(y_k)) \subseteq f(X)$ converging to $0$. But, $0 \not\in f(X)$. So $f(X)$ is not closed, and by Heine-Borel, is not compact.
+
+
+  \end{proof}
+\end{enumerate}
+
+\end{document}

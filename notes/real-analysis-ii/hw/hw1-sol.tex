@@ -1,0 +1,93 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{lastpage}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{mathrsfs}
+\usepackage{enumitem} % \setlist
+% for \imageans: float for [H] so the figure floats
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{float} 
+
+\setlength{\parindent}{0.25in}
+\setlength{\parskip}{0.05in}
+% indent paragraphs in list
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,
+}
+
+% Include graphics in answer
+\newcommand{\imageans}[1]
+{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\linewidth]{#1}
+    \end{figure}
+}
+
+% comments inside align environnment
+\newcommand{\comment}[1]{%
+  \text{\phantom{(#1)}} \tag{#1}
+}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+% Cases for Proof environment
+\newlist{pcases}{enumerate}{1}
+\setlist[pcases]{
+  label=\underline{Case~\arabic*}:\protect\thiscase.~,
+  ref=\arabic*,
+  align=left,
+  labelsep=0pt,
+  leftmargin=0pt,
+  labelwidth=0pt,
+  parsep=0pt
+}
+\newcommand{\case}[1][]{%
+  \if\relax\detokenize{#1}\relax
+    \def\thiscase{}%
+  \else
+    \def\thiscase{~#1}%
+  \fi
+  \item
+}
+
+% Edit these as appropriate
+\newcommand\course{Math 3122}
+\newcommand\hwtitle{HW 1}                  
+\newcommand\name{David Tran}
+\newcommand\studentid{251169871}
+
+\fancypagestyle{firststyle}
+{
+    \headheight 35pt
+    \lhead{\name}
+    \lhead{\name\\\studentid}
+    \chead{\textbf{\LARGE \hwtitle}}
+    \rhead{\course \\ \today}
+    \lfoot{}
+    \cfoot{}
+    \rfoot{\small\thepage}
+    \headsep 1.5em
+}
+
+\DeclareUnicodeCharacter{2212}{-}
+\begin{document}
+
+\thispagestyle{firststyle}
+
+\setlist[enumerate]{leftmargin=*} % remove enuemrate indentation
+
+\begin{enumerate}
+  \item \begin{proof}
+    Suppose for the sake of contradiction that such a function $f$ existed. Then $f$ is differentiable so it is continuous. By the MVT, for some $0 < c < x$, $\frac{f(x) - f(0)}{x - 0} = f'(c) = 1$ when $x > 0$. So, $\lim_{x \to 0^+} \frac{f(x) - f(0)}{x} = 1 \neq 0$. Thus, $\lim_{x \to 0}\frac{f(x) - f(0)}{x - 0} \neq 0$, so $f'(0) \neq 0$, contradicting the supposition.
+  \end{proof}
+
+  \item \begin{proof}
+    Let $F(x) = \int_a^x f(x) dx$. By the Fundamental Theorem of Calculus 2, $F'(x) = f(x)$ and $F$ is continuous. By the MVT, $\frac{F(b) - F(a)}{b - a} = F'(c) = f(c)$ for some $c \in (a, b)$. That is, $F(b) - F(a) = F(b) = \int_a^b f(x) dx = f(c)(b - a)$.
+  \end{proof}
+\end{enumerate}
+
+\end{document}
