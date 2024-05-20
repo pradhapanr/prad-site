@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: "/posts/"
-title: Posts
+title: posts
 ---
 
 ## posts
