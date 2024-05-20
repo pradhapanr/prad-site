@@ -1,1 +1,0 @@
-Run `make` to build both `q1` and `q2` which are the programs for Problem 1 and Problem 2, respectively. Modify the `CXX` and `CC` Makefile variable to point to your Cilk compiler. For `q2`, the `ENABLE_CILK` macro can be defined to enable cilk. To disable cilk in `q1`, add empty defines for `cilk_spawn` and `cilk_sync` in `SquareMatrixView.cpp`.

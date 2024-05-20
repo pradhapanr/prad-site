@@ -4,6 +4,8 @@ permalink: "/posts/"
 title: Posts
 ---
 
+## posts
+
 {% if site.paginate %}
 {% assign posts = paginator.posts %}
 {% else %}

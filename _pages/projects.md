@@ -4,14 +4,15 @@ permalink: "/projects/"
 title: Projects
 ---
 
-#### projects I've made
+## projects
 
-See my [github page](https://github.com/davidtranhq) for an up-to-date list of projects!
+For a full list of projects, my [GitHub](https://github.com/pradhapanr)
+will be the most accurate source.
 
-#### projects I've contributed to
+#### notable ones
+[SAM AppSync](https://github.com/aws/serverless-application-model): Helping AWS customers build and deploy GraphQL APIs 
+with more concise and pragmatic templates. 
+[(wiki post here)](https://aws.amazon.com/blogs/mobile/aws-sam-now-supports-graphql-applications-with-aws-appsync/) 
 
-[MathJS](https://mathjs.org): A numeric and symbolic math library for JavaScript and Node.js.
-
-[The Managarm Project](https://github.com/managarm): A pragmatic microkernel-based OS with fully asynchronous I/O.
-
-[OpenRewrite](https://github.com/openrewrite/rewrite): An automated Java refactoring tool.
+[GPX Parser](https://github.com/pradhapanr/GPXParser): A GPX parsing library that allows users to search, filter, and
+calculate optimized travel routes.
