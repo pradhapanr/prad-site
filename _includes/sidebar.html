@@ -9,14 +9,47 @@
         color: var(--clr-a-text-hvr);
       }
     </style>
-    <ul class="link"><li><a href="https://github.com/pradhapanr"><i class="fab fa-github"></i> GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/pradhapanr"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-      <li><a href="https://github.com/pradhapanr/new-site"><i class="far fa-bookmark"></i> Site Repository</a></li>
-      &mdash;
-      <li><a href="/projects"><i class="fas fa-code-branch"></i> projects</a></li>
-      <li><a href="/posts"><i class="fas fa-quote-left"></i> posts</a></li>
-      <li><a href="/notes"><i class="fa fa-sticky-note"></i> notes</a></li>
-    </ul>
+<ul class="link" style="list-style: none; padding: 0; margin: 0; display: block;">
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    <a href="https://github.com/pradhapanr" style="display: flex; align-items: center;">
+      <i class="fab fa-github" style="margin-right: 4px;"></i> GitHub
+    </a>
+  </li>
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    <a href="https://www.linkedin.com/in/pradhapanr" style="display: flex; align-items: center;">
+      <i class="fab fa-linkedin" style="margin-right: 4px;"></i> LinkedIn
+    </a>
+  </li>
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    <a href="https://github.com/pradhapanr/new-site" style="display: flex; align-items: center;">
+      <i class="far fa-bookmark" style="margin-right: 4px;"></i> Site Repository
+    </a>
+  </li>
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    &mdash;
+  </li>
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    <a href="/projects" style="display: flex; align-items: center;">
+      <i class="fas fa-code-branch" style="margin-right: 4px;"></i> projects
+    </a>
+  </li>
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    <a href="/posts" style="display: flex; align-items: center;">
+      <i class="fas fa-quote-left" style="margin-right: 4px;"></i> posts
+    </a>
+  </li>
+  <li style="margin: 5px 0; display: flex; align-items: center;">
+    <a href="/notes" style="display: flex; align-items: center;">
+      <i class="fa fa-sticky-note" style="margin-right: 4px;"></i> notes
+    </a>
+  </li>
+  <li style="margin: 15px 0; display: flex; align-items: center;">
+    <button class="theme-switch" style="background: none; border: none; cursor: pointer; font: inherit; padding: 0; display: flex; align-items: center;">
+      <i class="far fa-moon" style="font-size: 18px; margin-right: 4px;"></i>
+    </button>
+  </li>
+</ul>
+
     {% if page.toc %}
       {% include toc.html html=content h_min=2 class="toc" title="Table of Contents" title_tag="h4" %}
     {% endif %}
