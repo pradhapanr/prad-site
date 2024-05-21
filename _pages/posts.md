@@ -1,10 +1,10 @@
 ---
 layout: default
-permalink: "/posts/"
-title: posts
+permalink: "/blog/"
+title: blog
 ---
 
-## posts
+## blog
 
 {% if site.paginate %}
 {% assign posts = paginator.posts %}
