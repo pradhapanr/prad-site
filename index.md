@@ -4,7 +4,7 @@ layout: default
 
 Hi there! My name is Pradhapan, but I usually go by **Prad**.
 
-I am a University of Guelph graduate with a Bachelor's degree in Honours Computer Science. During my time there, I
+I am a University of Guelph alumnus with a Bachelor's degree in Honours Computer Science. During my time there, I
 interned at the following companies:
 
   - [ApplyBoard](https://www.applyboard.com/): *Recruitment Partner Tooling*
