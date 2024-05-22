@@ -10,7 +10,7 @@ student, I interned at the following companies:
   - [ApplyBoard](https://www.applyboard.com/): *Recruitment Partner Tooling*
   - [Amazon](https://aws.amazon.com/): *Serverless Application Experience*
   - [Snowflake](https://www.snowflake.com/en/): *Cloud Engineering*
-  - [Wealthsimple](https://wealthsimple.com): *DIY Core (investment platform)*
+  - [Wealthsimple](https://wealthsimple.com): *Investment Platform*
 
 The problems I work on are typically related to cloud engineering, infrastructure, and distributed systems, but that doesn't
 stop me from jumping into other domains that present interesting challenges. Here's my [resume](/assets/pdf/resume.pdf) with more info on my skillset.
