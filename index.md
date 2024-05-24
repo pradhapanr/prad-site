@@ -2,7 +2,7 @@
 layout: default
 ---
 
-Hello! I'm **Prad**, a software engineer at Meta.
+Hello! I'm **Prad**, a software engineer at Wealthsimple.
 
 I am a University of Guelph alumnus with a Bachelor's degree in Computer Science. During my time as a
 student, I interned at the following companies and teams:
