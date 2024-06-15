@@ -6,7 +6,7 @@ title: projects
 
 ## projects
 
-For a full list of projects, my [GitHub](https://github.com/pradhapanr)
+For a full list of projects, my [GitHub](https://github.com/pradrx)
 will be the most accurate source.
 
 #### notable ones
@@ -14,5 +14,5 @@ will be the most accurate source.
 with more concise and pragmatic templates. 
 [(wiki post here)](https://aws.amazon.com/blogs/mobile/aws-sam-now-supports-graphql-applications-with-aws-appsync/) 
 
-[GPX Parser](https://github.com/pradhapanr/GPXParser): A GPX parsing library that allows users to search, filter, and
+[GPX Parser](https://github.com/pradrx/GPXParser): A GPX parsing library that allows users to search, filter, and
 calculate optimized travel routes.
